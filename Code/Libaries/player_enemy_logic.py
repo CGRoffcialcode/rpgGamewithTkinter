@@ -4,6 +4,7 @@ from tkinter import messagebox
 import main as m
 import Libaries as lib
 from Libaries import player_enemy_logic as ec_logic, enemy_character as ec, continue_game as cs, powerup
+
 def attack(player, enemy, text_area):
     damage_to_enemy = max(0, player["Attack"] - enemy["Defense"])
     enemy["HP"] -= damage_to_enemy
@@ -23,13 +24,16 @@ def battle(player, enemy, text_area, attack_button):
             if not enemy_attack(player, enemy, text_area):
                 messagebox.showinfo("Game Over", "You have been defeated. Game over!")
                 m.root.quit()
-            elif not attack(player, enemy, text_area):
-                text_area.insert(tk.END, f"You have defeated {enemy['name']}! \n")
-                attack_button.config(state=tk.DISABLED)
-                m.root.after(1000, cs.continue_game)
-            elif enemy_attack(player, enemy, text_area):
+            else: 
                 attack_button.config(state=tk.NORMAL)
                 attack_button.config(command=player_turn)
+        else:   
+            text_area.insert(tk.END, f"You have defeated {enemy['name']}! \n")
+            attack_button.config(state=tk.DISABLED)
+            m.root.after(1000, cs.continue_game)
+                
+            
+                
 
     attack_button.config(command=player_turn)
 

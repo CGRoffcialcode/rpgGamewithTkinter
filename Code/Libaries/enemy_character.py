@@ -15,7 +15,7 @@ def encounter_enemy():
     return random.choice([
         {"name": "Goblin", "HP": 70, "Attack": 10, "Defense": 7},
         {"name": "Orc", "HP": 80, "Attack": 12, "Defense": 8},
-        {"name": "Dragon", "HP": 120, "Attack": 20, "Defense": 12}
+        {"name": "Dragon", "HP": 100, "Attack": 28, "Defense": 10}
     ])
 
 

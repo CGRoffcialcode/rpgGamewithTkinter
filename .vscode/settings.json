@@ -1,0 +1,6 @@
+{
+    "cSpell.words": [
+        "darkgrey"
+    ],
+    "python.envFile": "${workspaceFolder}/.env"
+}

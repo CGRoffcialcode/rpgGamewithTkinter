@@ -1,7 +1,8 @@
-# Code Explanation
-The code is exported into different functions, here is the checklist for them
+# LATEST UPDATE
 
-# List
+
+
+## List
 
 
 ##  Continue_game.py 

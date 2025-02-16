@@ -3,19 +3,22 @@ import tkinter as tk
 from tkinter import messagebox
 import main as m
 import Libaries as lib
-from Libaries import player_enemy_logic as ec_logic, enemy_character as ec, continue_game as cs, powerup
+from Libaries import player_enemy_logic as ec_logic, enemy_character as ec, continue_game as cs, powerup as pw
 
 def attack(player, enemy, text_area):
     damage_to_enemy = max(0, player["Attack"] - enemy["Defense"])
+    if player["SpecialPowerAttack"] == enemy["SpecialPowerDefense"]:
+        damage_to_enemy += max(0, player["SpecialPowerAttackPoint"] - enemy["SpecialPowerDefensePoint"])
     enemy["HP"] -= damage_to_enemy
-    text_area.insert(tk.END, f"You hit {damage_to_enemy} damage to {enemy['name']}. ({enemy['HP']} HP left) \n")
+    text_area.insert(tk.END, f"You hit {damage_to_enemy} damage to {enemy['name']}. ({max(0, enemy['HP'])} HP left) \n")
     return enemy["HP"] > 0 
-
 
 def enemy_attack(player, enemy, text_area):
     damage_to_player = max(0, enemy["Attack"] - player["Defense"])
+    if player["SpecialPowerAttack"] == enemy["SpecialPowerDefense"]:
+        damage_to_player += max(0, enemy["SpecialPowerAttackPoint"] - player["SpecialPowerDefensePoint"])
     player["HP"] -= damage_to_player 
-    text_area.insert(tk.END, f"{enemy['name']} deals {damage_to_player} damage to you. ({player['HP']} Hp left) \n")
+    text_area.insert(tk.END, f"{enemy['name']} deals {damage_to_player} damage to you. ({max(0, player['HP'])} HP left) \n")
     return player["HP"] > 0
 
 def battle(player, enemy, text_area, attack_button):
@@ -29,6 +32,7 @@ def battle(player, enemy, text_area, attack_button):
                 attack_button.config(command=player_turn)
         else:   
             text_area.insert(tk.END, f"You have defeated {enemy['name']}! \n")
+            m.root.after(1000, pw.create_power_up(player, enemy, text_area))
             attack_button.config(state=tk.DISABLED)
             m.root.after(1000, cs.continue_game)
                 

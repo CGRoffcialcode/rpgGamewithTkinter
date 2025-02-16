@@ -6,16 +6,17 @@ import Libaries as lib
 from Libaries import player_enemy_logic as ec_logic, enemy_character as ec, continue_game as cs, powerup
 def choose_character():
     return {
-        "Warrior": {"HP": 100, "Attack": 15, "Defense": 10},
-        "Mage": {"HP": 70, "Attack": 20, "Defense": 5},
-        "Rouge": {"HP": 80, "Attack": 18, "Defense": 8}
+        "Warrior": {"HP": 100, "Attack": 19, "Defense": 17, "SpecialPowerAttack": "Strength", "SpecialPowerDefense": "Strength", "SpecialPowerDefensePoint": 5, "SpecialPowerAttackPoint": 5 },
+        "Mage": {"HP": 70, "Attack": 20, "Defense": 5, "SpecialPowerAttack": "Magic", "SpecialPowerDefense": "Magic", "SpecialPowerDefensePoint": 10, "SpecialPowerAttackPoint": 6},
+        "Rouge": {"HP": 80, "Attack": 18, "Defense": 8, "SpecialPowerAttack": "Strength", "SpecialPowerDefense": "Strength", "SpecialPowerDefensePoint": 3, "SpecialPowerAttackPoint": 3},
+        "Fire Mage": {"HP": 80, "Attack": 20, "Defense": 5, "SpecialPowerAttack": "Fire", "SpecialPowerDefense": "Fire", "SpecialPowerDefensePoint": 7,"SpecialPowerAttackPoint": 10}
     }
 
 def encounter_enemy():
     return random.choice([
-        {"name": "Goblin", "HP": 70, "Attack": 10, "Defense": 7},
-        {"name": "Orc", "HP": 80, "Attack": 12, "Defense": 8},
-        {"name": "Dragon", "HP": 100, "Attack": 28, "Defense": 10}
+        {"name": "Goblin", "HP": 70, "Attack": 10, "Defense": 7, "SpecialPowerAttack": "Strength", "SpecialPowerDefense": "Strength", "SpecialPowerDefensePoint": 3, "SpecialPowerAttackPoint": 5},
+        {"name": "Orc", "HP": 80, "Attack": 12, "Defense": 8,  "SpecialPowerAttack": "Magic", "SpecialPowerDefense": "Magic", "SpecialPowerDefensePoint": 5, "SpecialPowerAttackPoint": 5},
+        {"name": "Dragon", "HP": 100, "Attack": 28, "Defense": 10, "SpecialPowerAttack": "Fire", "SpecialPowerDefense": "Fire", "SpecialPowerDefensePoint": 6, "SpecialPowerAttackPoint": 10},
     ])
 
 

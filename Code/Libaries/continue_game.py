@@ -4,8 +4,7 @@ from tkinter import messagebox
 import main as m
 import Libaries as lib
 from Libaries import player_enemy_logic as ec_logic, enemy_character as ec, continue_game as cs, powerup
-from Libaries import WORKAROUNDcontinue_game as E
-
+from Libaries import utils as E
 def continue_game():
     global enemies_defeated
     enemies_defeated = E.returnE()
